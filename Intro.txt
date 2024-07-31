@@ -1,0 +1,100 @@
+Node js
+
+Node js is runtime env for js built on google's opensource v8 js engine., where you can execute js, not framework not library
+
+js just inside the browser. any browser natively understands html, css,js , react, angular or vanilla.
+what if we could take js code out of the browser and we can execute it without all the restrictions we have in the browser?
+Yes we can. just like a container or an environment where the program written in js can be executed, but outside of any browser.
+Who executes the code if not browser?
+V8 engine developed by google, there exactly js code will be parsed and executed in node js.
+
+Ryan Dahl
+combined v8 engine and c++
+
+so that you can run js outside of the browser
+js can talk to native machine because of c++
+you can create webservers in js language
+
+
+standalone env node js
+accessing file system, better networking capabilies like factors together give us the perfect conditions for using node js as a webservers
+So we can use js on the server side of webdevelopment.
+In order to build fast, highly scalable backend applications.
+
+Fast and scalable
+because it is single-threaded, based on event driven, non-blocking io model which makes node js very light weight and efficient.
+Perfect for building fast and scalable data-intensive apps.
+Building all types of apps with a db behind it, preferrably nosql dbs as mongodb.
+data streaming apps, youtube or netflix.
+real time chat apps
+server side web app, where the entire content is simply generated right on the server.
+netfilx, uber, paypal, ebay are using node.
+Using js across the entire stack. faster and more efficient development.
+NPM: Huge library of open source packages for free.
+Active community for node developers out there.
+
+Should not build with node
+apps with heavy server side processing
+heavy image manipulation
+video conversion
+file compression etc.
+php, python, java
+wasn't developed for this used cases,
+
+
+node js installation
+
+nodejs.org
+lts- long term suppose, stable
+current - latest features, bugs, beta version, to test out new features - 19.3.0
+versioning - odd even approach, even - stable , odd - new features
+
+verify
+node --version
+
+
+type node which opens the node repl, stands for read-eval-print-loop.
+Here we can write a js code just like a normal terminal.
+ES6 support
+.exit
+tab all the types of global var. available in node.
+_ is prev result.
+String.tab
+
+npm -v
+What is npm. node package manager, npm automatically installs when node
+when we create node projects, we need to install some packages, some plugins, for installing and uninstalling is managed by npm.
+
+Hello World
+
+empty folder, new folder hello-world, first program. open in vs code
+hello.js 
+console.log('Hey there, I am js'
+node hello.js or node hello
+node only runs js files
+
+console.log(window)
+console.log(alert("Hey"))
+
+not getting executed in node, where it is getting executed in web browser
+So unable to execute some js functions in node,
+so chrome's v8 engine is not directly embedded to c++, but dom related elements, windows related things like window, alert are removed.
+Because we know that node is run on server side only, so ui related things, dom manipulation related things are removed.
+So functions like document.getElementById window, navigator and all are not available here.
+Core functionalities of js which is needed in server side are there.
+many changes done. things are removed and added,
+cryptography, encrypt, decrypt, file handling are added.
+
+Npm stands for node package manager, 
+when we start our project we have to write npm init
+npm initialize, it creates a template for us or a file for us which is used for running our project.
+
+package.json, config file, config for project, 
+install dependencies, publish, code run can do in this configuration.
+
+script youtube: node hello.js
+can create our own scripts
+used for external dependecies, name our packaes, name our application
+
+
+modules in node js
