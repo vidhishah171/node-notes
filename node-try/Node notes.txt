@@ -1,0 +1,93 @@
+Node: Runtime environment for executing java script code.
+
+Node apps are highly scalable because of non-blocking Asynchronous nature of node.
+
+What is asynchronous: Metaphore. 
+A single thread is used for handling multiple requests.
+
+Node applications are asynchronous by default. A single thread handles all request.
+Event queue: When db prepares the result, It'll put a message in Event Queue.
+Node is continuously monitoring the queue in background. when it finds an event in this queue, it'll take it out and process this,
+
+Node is ideal for I/O intensive apps
+Node should not be used for CPU intensive applications such as video gaming or image manipulating,
+It should be only used for building data intensive and real-time applications.
+
+Node is a c++ program which include chrome's v8 javascript engine.
+
+
+Module system in node:
+
+os, fs, events, http.
+
+Every node application has a module which we call a main module. in this case, app.js is our main module now.
+
+
+Node Package Manager (NPM)
+
+Asynchronous JavaScript - callbacks, promises, async and await.
+
+CRUD Operations
+
+Data Validation
+
+Authentication and Authorization using JSON Web Tokens including role management
+
+Handling and Logging Errors
+
+Unit and Integration Testing
+
+Test - driven development
+
+Deployment with Cloud
+
+Few Important modules of node
+
+1. FileSystem
+2. HTTP: with this, we can create http server that listen for http requests
+3. OS: To work with operating system.
+4. Path: Gives bunch of utility system for working with paths
+5. Process: Gives us info about the current process
+6. Query Strings: Very useful for building http services
+7. Stream: Which allows us to work with streams of data
+
+Node process has a single thread. So always use an asynchronous method.
+
+
+All the asynchronous methods take function as their last argument. Node will call this function when their asynchronous operation completes. We will call this function a callback.
+Callback is a function with 2 params, an error and result ie. string[]
+So here we need to check if the function has error or a result, thus only one of this argument will have value, either error or result.
+
+Events is a core module of node.
+An event is basically a singal that indicates something has happened in our application.
+For ex. we have a class called HTTP, that we can use to build a web server, so we listen on a given port. And everytime we listen to a request on that port, HTTP class raises an event: New request.
+Now our job is to respond to an event which means that reading to that request and returning the right response.
+
+Several classes in node raises a different kind of events.
+
+Event Emitter class : One of the core building blocks of node and lot of classes are based on that class.
+
+class and object: human and person name.
+A class defines the properties and behaviour of a concept like human, but an object is the actual instance of that class like Person name.
+Class is a blue print, it defines what can an eventEmitter do, but the object does things in actual.
+
+We can raise an event with agruments and get those arguments through listener, we can use that between different modules by extending EventEmitter class to a Logger or etc. class. Then, we can use all the methods of EventEmitter module through logger class object with the same reference of emitter(logger class object).
+
+One of the Powerful modules of node contains HTTP Module
+
+We use it for creating networking apps, ex. we can create a web server that listens for HTTP requests on a given port.
+And with this we can easily create a backend service for a client application like a web app that we build in angular or react or a mobile app running on a mobile.
+
+createServer() is used to create a web server. Returns server: which is an EventEmitter. Which has all the capabilities of EventEmitter.
+server.listen(port); //Listens on this port.
+Everytime a new request or new connection is made on this server, it raises an event.
+So we can use its own method to handle that event. So before listening we need to register a handler or listener.
+server.on('connection',(socket) => {}) //connection you can find in the documentation. listener ofPrebuilt event.
+In real world we are not going respond to the connection event to build an http service, this is very low level.
+
+What we commonly do, is to pass a callback function to createServer()
+// With this function, instead of working with socket, we'd work on actual request and response.
+
+For creating service or app, we need to handle various routes, such as if req.url === '/' then what to do, if it's '/apis/counts'
+then what to do.
+To write response as JSON array we can use JSON.stringify(Array of objects: [1,2,3])

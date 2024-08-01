@@ -1,0 +1,43 @@
+File handling
+
+file.js
+
+Create files, read files
+fs stands for file system
+
+// Sync call,
+fs.writeFileSync('./test.txt',"Hey there");
+
+// Async: callback function, if incase of any error, it'll run
+fs.writeFile("./test.txt","Hello", (err) => {}) 
+
+difference -> blocking and non blocking request
+event hoops, threads, blocking tasks and non blocking tasks
+
+currently works the same
+
+read file, create contacts.txt file
+
+// what is your file's type, txt file, binary file
+fs.readFileSync('./contacts.txt','utf-8'), asks what is the encoding simple txt file
+console.log(result)
+// sync returns the result in a variable.
+// if we use async, it doesn't return the results, but it asks for a callback fn, for that first arg is err and second is result.
+fs.readFile('./contacts.js', 'utf-8', (err, result) => {
+if(err) {} else {}})
+
+doesn't return anything, return type void
+
+append data:
+${Date.now()}}
+fs.appendFileSync("./test.txt", new Date().getDate().toLocalString())
+
+fs.copySync('./test.txt','./copy.txt')
+
+fs.unlinkSync('')
+
+fs.statSync('./test.txt').isFile()
+
+fs.mkdirSync('my-docs',{})
+fs.mkdirSync("my-docs/a/b", {recursive: true})
+can't do in js

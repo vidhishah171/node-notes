@@ -1,0 +1,98 @@
+Var: function scoped: undefined before intializing
+Let: block scoped: more strict, can't use before intializing
+Const: not changeable
+
+
+function sayHello(name) {
+    console.log("Hello " + name);
+  }
+  
+  sayHello("Vidhi");
+
+
+console.log(message) undefined
+var message = "hi";
+console.log(global.message); //undefined
+
+var sayHelloInline = function () {
+  console.log("Hello World!");
+};
+
+sayHelloInline();
+
+arrow functions
+
+console.log(module)
+
+
+
+
+
+Dividing whole code base into small parts
+Moduler programming
+
+
+function add(a+b) {
+return a+b;
+}
+
+console.log(add(2,5)))
+
+this file is a module.
+
+math.js
+
+function add(a+b) {
+return a+b;
+}
+
+add not defined. 
+use math.js into main file
+
+require function
+
+const math = require('buffer')
+const math = require("./math");
+check in installed packages, built in packages
+
+console.log(math)
+custom module, library
+empty object
+private function add
+
+module.exports = 'Piyush';
+run again
+
+module.exports = add;
+
+math(2,4)
+
+function sub(a,b) {
+return a-b;
+}
+
+module.exports = sub;
+override add
+
+you can use js object to return multiple things
+
+module.exports = {
+addFn: add, subFn: sub}
+
+const {addFn,subFn} = require('./math');
+first export, then import using require function
+this is default export
+
+another way is using exports function
+
+exports.add = (a,b) => a+b;
+exports.sub = (a,b) => a-b;
+same value but anonymous function, no name, don't know what function does.
+print functions
+
+module.exports can use only once, exports function can use multiple times.
+
+http: webserver
+fs: file handling
+check in node directory or external pakages, ./ current directory
+crypto package
