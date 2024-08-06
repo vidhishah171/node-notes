@@ -1,0 +1,65 @@
+URL: Unicode Resource Locator
+
+https://www.google.com
+
+Protocol: Hyper text transfer protocol secure
+Set of rules which tells browser to how to communicate with server.
+all req encrypted, ssl certi, http with no certi, less secure
+ws: for web socket, fo real time communications
+
+domain: www.google.com
+user friendly name of the ip address of my server
+where the server runs, we purchase a domain and bind the ip to the domain
+
+ping google.com: gives ip adress. difficult to remember
+
+/ root path
+after that path /about /contactus
+nested path /project/1
+
+Query parameters: extra info we can pass with url
+key value pairs after question mark
+you cannot have spaces in url
+
+
+Start the server
+
+if(req.url === "/favicon.ico")res.end();
+
+?myname=piyush
+
+http doesn't parse the query params
+
+npmjs.com
+here we have the packages which i can install in node server.
+
+url
+
+convert the url and gives host, port, query params etc
+
+npm i url
+dependency is created in package.json for url package
+folder gets created for node-modules, it contains the actual code for the libraries.
+if I delete node-modules
+
+then i'll run the command npm install, it'll check in the dependency in package.json and automatically installs them.
+
+Now i'll import it by using require('url')
+it'll first check if it is in my dependecies, else it'll search in the built in modules.
+
+const myUrl = url.parse(req.url)
+console.log(myUrl)
+host null as localhost
+
+switch(myUrl.pathname)
+Check documentation for gettingquery params.
+
+const myUrl = url.parse(req.url, true) = parseQuery Strings
+
+it automatically creates array of objects for ourparams.
+const username = myUrl.query.myname;
+
+js+tutorials+for+beginners
+query params start with ? and differentiate with &
+
+takes req, parse url, process req, gives response to client.

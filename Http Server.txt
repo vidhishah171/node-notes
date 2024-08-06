@@ -1,0 +1,68 @@
+Http server
+
+npm init
+creates package.json
+create main file index.js, good approach to name, many developers, many projects.
+
+http server, api server
+const http = rerequire('http')
+using this built in package i can create my web server
+const myServer = http.createServer();
+
+it creates a webserver for us, 
+who will handle all the requests and processes? We'll need a handler function to handle all the incoming requests
+
+Takes RequestListener call back function with createServer method to process all the incoming requests.
+const myServer = http.createServer((req, res) => {});
+who's requesting and what response is sent, who is request, user's ip address, using res i can send response
+
+console.log('New request received');
+res.end('Heloo from server');
+
+to run server we need port number, in local machine mostly all the ports are open.
+ports are like doors in a house, in which door i want to run, one server can only one port
+
+myServer.listen(8000, () => console.log('server started.'))
+
+start script: node index
+
+npm start
+or node index
+
+check in browser, localhost:8000
+
+console.log(req.headers)
+extra info of request
+
+if you make any change, you need to restart server.
+
+you can send an image, an html in the response, which is called server side rendering.
+
+create log file,
+
+const fs = require('fs')
+
+const log = `${Date.now()}: New Req received\n`;
+fs.appendFile("log.txt", log, (err,data) => {
+res.end('Helloo")
+})
+
+comes two times, browser calls one time extra for this web icon, no need to worry
+at what time, from which machine the request comes,
+
+const log = `${Date.now()}: ${req.url}  New Req received\n`;
+
+switch(req.url) {
+case '/': res.end('HomePage');
+break;
+case '/about': res.end('About');
+break;
+default: res.end('404 Not found');
+}
+
+support multi route using the switch.
+
+we use http module, we call createServer method, inside that we give a request handler, who handles our request, which has req and response, using it we can give response or get the data about request.
+What if I use blocking request, then i can occupy all the threads and other users need to wait for the long time.
+support parallel/concurrent requests then you should not do cpu intensive works like image processing, else you'll block the thread pool and other users needs to wait.
+So always try to use non-blocking methods.

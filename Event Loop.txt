@@ -1,0 +1,40 @@
+Client makes a request to a server, server is in node js
+
+How node handles request
+event queue, all requests queues in event queue
+User 1, user 2 in queue, after that it goes to event loop, the machine which watches event queue all the time
+pick ups the request from event queue in fifo order, 
+Event loop watches event queue and removes requests from event queue one by one
+
+The requests can be of 2 ways, Blocking operations and non blocking operations
+sync operations, async operations
+Event loops checks if the request is blocking or non blocking
+if its non blocking operation, processes the request, and sends the user the response.
+If it's blocking operation -> request goes to thread pool: Kind of a pool which has thread, thread is kind of a worker who works for you
+Thread pool is a pool of threads who are responsible for completing you task.
+One thread is assigned to one request if its a blocking operation, if any thread is available, it gets assigned and process the request and returns the result.
+After completing the process thread again sits ideally in the threadpool and returns the result.
+
+Limited threads, by default 4 threads, thread size = 4
+Lets say 4 users requested and blocked the threads,
+if 5th user comes, it needs to wait for any of operations to complete and threads to get free.
+For more number of functions and task and big apps, too much of waiting time
+So its always recommended to use async operations.
+
+
+console.log(1)
+const result = fs.readFileSync('contacts.ts','utf-8'); //blocked thread
+console.log(result) 
+console.log(2)
+
+Convert to non blocking and see the execution order
+1, 2, then result - non blocking, gives result asynchronously
+
+// Default hrad pool size: 4
+How much can we increase it, how many cores in cpu we have, we can increase it till that.
+8 core cpu - cannot make 9 threads
+
+const os = require('os')
+os.cpus().length
+
+We should always write a code that is non blocking
