@@ -1,0 +1,25 @@
+Http Methods
+
+Get: Get some data from the server, get request goes when browser url search
+Post: To create new data, when you want to send and mutate some data in server, to add data or change data, html forms, submit data
+Put: file, photo upload
+Delete
+Patch: small change in existing entry
+
+
+req.method
+by default get request
+
+if(req.method === 'GET')
+res.end('Homepage')
+
+case '/signup':
+if req.method === get res.end(sign up form)
+else if (req.method === post) {
+//db query
+res.end('sucess')
+}
+
+switch cases for route, and then switch cases for methods
+
+express framework, for managing requests

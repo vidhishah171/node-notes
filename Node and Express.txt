@@ -1,0 +1,65 @@
+Express framework
+
+
+http, create server, handles the whole server,
+
+create function myHandler
+
+too much confusing
+case for every route
+get, post, put needs to handle differently
+
+for getting urls, needed to import a different package
+json, different module
+handling every thing at scratch level
+
+need library framework for this
+
+npm i express
+versioning in detail
+
+const express = require("express")
+
+const app = express();
+app initialized, handler function
+
+app.get('/', (req.res) => {
+	return res.send("Hello home page")
+})
+
+app.get('/about', (req.res) => {
+	return res.send("Hello about page")
+})
+
+which request you want to handle, which path
+
+replace app param inplace of handler function in createServer fn.
+app is basically internal handler function only which handles request and responses.
+Easy work
+
+query params
+	return res.send(`hey ${req.query.name}`)
+ 
+every thing is built in express
+
+code clean, module, handle routes easy
+
+path params, we'll see nexttime. We have seen query params, dynamic routes we will see.
+
+no need to create server, just write
+app.listen(8000, () => console.log("server started"));
+
+express will internally require http module, and will add listener automatically
+Why express is made
+what does express do internally, how it uses http module.
+Express is just a framework, internally http module is used only in express.
+
+Express documentation
+hellow world
+
+basic routing
+app.method(path, handler) handler is function executed when the route is matched.
+So now we'll use express
+also uninstall the url package, as we don't need it
+
+npm uninstall url
