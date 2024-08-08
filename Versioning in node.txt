@@ -1,0 +1,66 @@
+Versioning in node js
+
+version 1.0.0
+
+^4.18.2
+
+Version
+3 parts
+1st part = 4 - minor
+2nd part = 18 - recommended
+3rd part = 2 - major
+
+3rd part (last part) - minor fixes (Optional update)
+Latest -> 4.18.2 - typo, bug, minor changes
+I'll check for the documentation first and then decide
+
+npmjs.com
+search for express - latest version
+
+2nd Part: 18 - Recommended Bug Fix (Security fix)
+Latest -> 4.19.1 added recommended bug fix or added new feature
+
+New route, new profile page - adding a feature, change in second part, critical security bug
+
+Check change log
+
+3rd Part: Major Release - Major/ Breaking update
+you're very cautious
+Existing application might can break, 
+if building new application you can use new version
+check documentation
+
+npm uninstall express
+by default installs latest version
+npm install express@4.17.2 - to install specific version
+
+
+^ compatible with version 
+4th version
+
+^4.18.2 | 4.18.2 -> <5.0.0
+keep default version as 18, can change 18 and 2
+
+npm update
+npm install 
+
+4.18.3
+4.18.4
+
+^- install all recommended and minor fixes automatically, doesn't ask the admin
+doesn't update 4 to 5 major release automatically, versions which are compatible with 4th version, update automatically
+
+~4.18.1 
+Approximately equivalent to version
+doesn't update the recommended changes
+
+4.18.2
+4.18.3
+4.19.0 - won't update
+
+simple version: must match the version exactly
+
+range: 4.0.0 - 4.9.9, same as ^4.0.0
+url
+
+latest - risky thing, 4.18.x - x variable

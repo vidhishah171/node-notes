@@ -1,0 +1,39 @@
+Mongo DB
+
+What is mongo, How we can setup
+
+No sql doument based database
+2 types of database: sql vs nosql
+Works on relations, tables, no sql works on documents
+
+Strong support for aggregation pipes
+Imp topics, 
+
+Works on bson format
+like a json format
+
+best for node apps
+best compatibility as it works on bson, every used with node
+
+Mongo db architecture
+
+collection - users, table in sql
+docuement in collection - row entry in sql
+
+mongodb install
+install mongodb community edition
+mongodb service will start
+
+mongosh
+mongodb shell to interact with mongodb
+show dbs
+toshow databases
+
+use dbname - use library
+show collections
+db.collection.find({})
+this is a document, array of documents
+
+db.users.insert({})
+
+will connect to node, and create delete update.

@@ -1,0 +1,58 @@
+Restful API
+
+Representation state, api type which has standards or rules which are the best practices we can follow
+
+Server
+
+Client - browser, mobile, alexa
+
+Client sends the request to server, and server returns the response to client
+for sending the requests and receiving the reponses there are some standards or set of rules or some best practices we should follow.
+Best scalable
+
+Server Client architecture
+
+Server and clients are separate entities and doesn;t dependent on each other.
+
+Response should be text, image, html document, json.
+
+Get /blogs - fetch from db - created html doc and sent as a response,
+if server is a browser it will display and render the render,
+but if the server was mobile or alexa, it can't render the html.
+html is created by server, So here client is dependent on server , shouldn't be restful api.
+
+Sending html is called ssr, server side rendering, because we created html on server side and rendered on server.
+and sent the rendered thing to client, this thing is fast, we are gonna know this, also secure, even google, youtube also do ssr.
+
+Json:
+db query -> transfer it to xml/json, xml was used before
+json - key value pairs, raw data.
+
+client will read the json data and render it client side.
+now any of my client if it is mobile app or browser, will independently render the data.
+server will send the raw data, we do not care what language is used in frontend, client will render the data and use the data accordingly.
+
+if you know your client is browser only, then it's a good practice to send html, less client side process and rendering
+If youve cross platforms like ios, mobile app, smart devices, you always send a json.
+
+Always follow the client server architecture
+
+2. always respect all http methods
+Get, post, put, patch, delete
+
+Get /user - read user data and returns
+post /user - handle new user creation
+patch /user - update the user
+
+post /update user -> user update
+post /createUser -> Create
+This works but, Is this a best practice, when already you have patch then why are you using post to update.
+
+1. client - browser, we'll render html
+2. respect - http method
+
+You don't need to handle states, easy to handle json and html
+res.json
+res.send
+res.render
+html is fast as pehle hi render kar liya and pass kar diya
