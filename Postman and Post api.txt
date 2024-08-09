@@ -1,0 +1,42 @@
+Browser can't call post, put, delete, patch
+Postman is a utility tool which helps us for api testing and documentation
+
+when we do npm start, it runs on localhost:8000, we had to open browser and run endpoint
+
+http://localhost:8000/users : http for localhost: as we don't have ssl certificate
+
+200 : everything is good, sucessful, time, size
+
+To test your apis, decrease your time - that is your intention
+
+Body:
+www.form.url encoded: form in website
+firstname, lastname, email, gender, jobtitle
+
+need to use fs module as we don;t have db.
+
+
+//apply middleware: plugin, middleware
+app.use(express.urlencoded({extended: false})) // will enter form data into body
+// runs on every request, takes data, creates js object and added to req.body
+
+
+app.post("/api/users", (req,res) => {
+const body = req.body; //whatever data we send from frontend in body, payload is available in body
+console.log(body) //undefined: because express doesn't know what type of data it is, how is it handled, for that we need to use middleware, as of now we can understand it as a plugin. There are many plugins in express, next lec.
+return res.json({status: "Pending"})
+})
+
+to add in mock data.
+
+
+const fs = require("fs")
+
+users.push({...body, id: users.length+1})
+fs.writeFile('./mockdata.json', Json.stringify(users), (err,data) => {
+return res.json({status: "Sucess", id: users.length})})
+
+Here we are generating id manually, in real world database will generate the id,
+real world create api logic
+
+you have to implement patch and delete request

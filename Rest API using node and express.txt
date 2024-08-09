@@ -1,0 +1,111 @@
+Rest API
+
+
+cmd, npm init
+index.js
+
+npm i express
+
+boiler plate code
+const express = require("express")
+const port = 8000;
+
+// routes
+
+app.listen(port, () => console.log(`server started at port ${port})`)
+
+start: node index.js
+
+boiler plate code is ready
+
+task.txt
+REST API - JSON
+for users
+
+Get users/ - 
+GET /users = List all users
+GET /users/1 - Get the user with Id 1
+GET /users/2 - Get the user with Id 2
+
+POST /user - create new user
+Patch /user/1 - Edit the user with id 1
+DELETE /users/1 - Delete the user with Id 1
+We need data, hardcode data
+mockaroo.com
+
+mock_data.json
+Format
+
+Go to index.js
+
+const users = require("./mock_data.json");
+
+app.get("/users", (req,res) => { return res.json(users)});
+Json, raw data, react, next js will according render the json
+
+Server is basically hybrid server - it should support browsers and mobile apps,
+so 
+/users - html document render
+api/users - return users as json - for mobile devs
+
+for all endpoint /api/users - json data
+/users - html data render
+
+
+app.get('/users', (req, res) => {
+const html = `
+<ul>
+${users.map((user)=> `<li>${user.firstname}</li>`).join("")}
+</ul>`;
+res.send(html)
+})
+
+inspect
+ssr page
+for flutter, react client
+
+dynamic routes for ids
+
+app.get("/api/users/1", (req,res) => {})
+so many users, so user id can be dynamic, can say dynamic path parameters
+
+Get /api/users/:id - variable | Dynamic
+
+
+app.get("/api/users/:id", (req,res) => {
+	const id = req.params.id; // any name but its an id
+	const user = users.find((user) => user.id === id);
+	return res.json(user)
+})
+gives particular user info
+
+
+app.post("/api/users", (req,res) => {
+console.log()
+return res.json({status: "Pending"})
+})
+
+
+app.patch("/api/users/:id", (req,res) => {
+return res.json({status: "Pending"})
+
+})
+
+app.delete("/api/users/:id", (req,res) => {
+return res.json({status: "Pending"})
+
+})
+
+same route, merge
+
+app.route("/api/users/:id").get((req,res) => {
+	const id = req.params.id; // any name but its an id
+	const user = users.find((user) => user.id === id);
+	return res.json(user)
+}).patch( (req,res) => {
+return res.json({status: "Pending"}) // good practice to return 
+})
+.delete( (req,res) => {
+return res.json({status: "Pending"})
+})
+grouping, in future if we want to change the route, we can easily change it from changing into one location
