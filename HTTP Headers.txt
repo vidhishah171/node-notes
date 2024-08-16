@@ -1,0 +1,72 @@
+HTTP Headers
+
+
+a person sends a mail to his friend through a courier service or postman
+
+additional data on the packet as in from, to, weight
+inside the packet actual data, extra info outside the packet
+
+
+The receiver person is a server, send is a client, envelop is a request, data is sealed inside the packet, and extra info is headers.
+for every req and res, there are packets which we call network packets, and inside those packets the actual data resides
+on the packet the info resides which are headers
+so from can be ip address, to can be the ip address, content type can be json
+what type the content is inside the package.
+headers display's the info about particular package.
+
+Headers:
+
+HTTP Headers are an imp part of the API request and response as they represent the meta-data associated with the API request and response.
+Headers carry info for the Request and Response Body.
+Metadata: Data about data.
+A HTTP header is a field of an HTTP request or response that passes additional context and metadata about the request or response.
+
+Real world example
+Go to incognito tab, inspect
+Request headers, response headers
+browser sends the headers: request headers
+user agent.
+
+Response headers: server sends the data to browser
+
+Tab headers in response in postman
+user agent: which app i'm using which creating a request: chrome, browser
+postman token
+accept: which type of data i'll accept: any
+encoding, connection
+
+X powered by: express, express is adding internally that is server is powered by express
+content type automatically selected
+content length: how many characters, how many bytes
+
+custom headers:
+
+res.setHeader('myName', 'Piyush Garg')
+
+add a request header,
+purpose: learning
+req.headers console.log
+
+Best practices:
+myName is a custom header
+Always add X to custom headers, like express did so that client can understand that this is a custom header and not a built in header.
+X-myName 
+
+Built in headers in api
+https://flaviocopes.com/http-request-headers/
+
+in authorization and authentication, we will add a token, user id in the headers, so that we know that which user is requesting.
+
+What are headers,
+how can we use headers and how can we access them
+
+url encoded plugin
+content type - url encoded, is json, postman will select app/json
+
+Middlwware, internally
+it will first checks the headers, if the content type is urlencoded, it will parse the request into our body.
+it works by looking at the headers, that which type of data is coming to us, how to parse it, is it a json data or is it an image or a file.
+Or how to parse it, it parses it and makes it available into our request.body.
+
+Go to source code.
+express.json()

@@ -1,0 +1,64 @@
+Satus codes
+
+404 - not found
+mdn documentation
+
+indicate whether a specific http request has been successfully completed.
+400 - 499 : client error, password wrong
+404 - your mistake not existing page
+
+500 -599 : server error, db connection error
+
+200 ok, on api code - standard response for http successful request
+
+Post, some put request: 201 created, also successful. new resource was created.
+
+res.status(201).json({})
+
+i need to restart the server everytime
+
+package nodemon
+
+npm replace nodemon
+on ctrl+s checks changes in files, and restarts.
+
+204 - req, successful but don't want to send any content in return.
+
+client error response
+
+400 - bad request, something in payload missing
+
+in post
+
+if(!body || !body.firstname || !body.email || !body.lastname) {
+return res.status(400).json({msg: all fields are required.})
+}
+
+making things sensible.
+
+401 - unauthorized
+
+facebook req send, not login, so unauthorized, unauthenticated.
+
+402 - payment required
+no stable
+if you are using any service, card or credits are exhausted, then can send 402 payment required. so you can't do this and payment is required.
+
+403 - forbidden
+logged in but no permission to access anything or perform any activity.
+
+404 - express handles automatically by it self, show example.
+also we can use customly, like if no id found in find by id api, then send 404
+if(!user) return res.status(404).json({msg: user not found.})
+
+
+500 - server error response.
+server has an error.
+
+501 - not implemented yet.
+
+300 - redirection response
+
+payment server - redirection for payment or a service which is using short urls.
+
+bitly, user gives url and we shorten the url.
