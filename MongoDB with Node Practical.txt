@@ -1,0 +1,101 @@
+mongosh
+ x before custom header
+ 
+dependecny mongoose, to connect with mongodb
+
+npm i mongoose
+to connect with mongodb with node js
+
+
+const mongoose = require("mongoose")
+
+test.txt
+
+a Schema in mongoose
+
+Schema: To Define the strucutre
+
+We create the Model in Schema, to define the structure.
+
+Schema - Model
+Using Model we do CRUD operations.
+
+index.js
+const userSchema = new mongoose.Schema({
+	firstName: {
+	type: String,
+	required: true
+	},
+	lastName: {type: String},
+	email: {type: String, required: true, unique: true},
+	jobTitle: {type: String},
+	gender= type: String (should be an enum, but string as of now)
+}, {timestamps: true})
+
+Automatically tracks created and updated at.
+
+We have defined a schema.
+
+now we'll create model
+
+name, Schema as args
+const User = mongoose.model("user", userSchema)
+now using this user class or object, we'll do the crud operations
+
+but wait, we forgot to connect to mongodb.
+
+//connection, first mongoose will get connected and it will return a promise
+mongoose.connect("mongodb://127.0.0.1:27017/my-project-1")
+.then(() => console.log("Mongodb connected."))
+.catch((err)=> console.log("Mongo connection error:", err))
+
+connection, schema, model and starttt
+
+ignore warning
+
+we'll use User object to do stuff.
+
+show dbs in cmd
+use my-project-1
+show collections
+db.users.find({})
+
+
+edit in post route.
+
+app.post("/api/users", async (req,res) = {
+const result =	await User.create({
+		firstName: body.first_name,
+		lastName: body.last_name,
+		email: body.email...etc
+	});
+	console.log(result)
+	return res.status(201).json({msg: "Success"})
+})
+
+
+app.get("/users", async (req, res) => {
+const allDbUsers = await User.find({});
+const html = show user.firstName, user.email, user.lastName
+})
+
+
+if you want to use async, then await if you want to use await then async.
+app.get("/api/users", async (req, res) => {
+const allDbUsers = await User.find({})
+})
+
+
+app.route("/api/users/:id")
+.get(async (req, res) => {
+const user = await User.findById(req.params.id)
+})
+.patch(async (req, res) => {
+await User.findByIdAndUpdate(req.params.id, {lastName: "Changed"});  //should get from frontend
+})
+.delete(async (req, res) => {
+await User.findByIdAndDelete(req.params.id)
+})
+
+schema, model from schema and then we can use that model for the crud operations.
+automatically changes the db name to plural. user to users collection name.
