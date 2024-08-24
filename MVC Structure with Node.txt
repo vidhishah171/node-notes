@@ -1,0 +1,155 @@
+Model View Controller
+
+
+Three components
+
+Models, Views, Controllers
+
+Controller manipulates model
+Model updates View
+
+
+All the code in one file, issue in maintainibility.
+for new models, big problem.
+
+Refractor the code
+
+models folder
+controllers
+routes
+views
+
+
+overview in index.js - no change for now
+
+
+models -> user.js
+
+reuire mongoose
+schema cut from index.js
+create model
+
+module.exports = User
+
+
+routes -> user.js
+
+require express
+before we used app.get, get.post
+when refractoring we'll need to use const router = express.Router()
+
+
+router.get
+
+router.post
+
+an isolated router
+
+module.exports = router
+Created a separate router, on this router we registers some routes, exported routers
+
+remove api/users from all
+router only for user
+
+go back to index.js
+
+import userRouter = require('./routes/user')
+
+
+app.use("/user",userRouter);
+
+connection into separate file
+connection.js
+
+require mongoose
+
+
+async function connect(url) {
+	return mongoose.connect(url)
+}
+
+module.exports = {connect}
+
+in index.js
+
+const {connect} = require("./connection") 
+
+connect("url")
+
+middlewares -> index.js
+
+inside this we'll use closures
+
+function logReqRes(filename) {
+	return (req, res, next) {
+	this is an arrow function
+	cut from index.js fs.appendFile
+	}
+}
+
+module.exports = {logReqRes}
+
+const {logResReq} = require("./middlewares")
+no need to say /index.js because it will take it automatically, by default index.
+
+app.use(log.reqRes("log.txt"))
+
+arrange imports
+
+
+routes -> user.js
+
+handlers = controller
+
+controllers -> user.js
+
+functions, which we will attach to our routes
+
+const User = require("../models/user")
+
+async function handleGetAllUsers(req,res) {
+	const allDbUser = await User.find();
+}
+
+in routes -> user.js
+
+
+const {handleGetAllUsers} = require("../controllers/user");
+
+router.get("/",handleGetAllUsers);
+
+async function getUserById(req,res) {}
+
+async function handleUpdateUserById(req,res) {}
+
+handleDeleteUserByID(req, res)
+
+handleCreateNewUser()
+
+group routes if path is same.
+
+and export and import all
+
+warning in console for mongoose,
+connection.js paste it
+mongoose.set("strictQuery", true);
+warning will be removed.
+
+
+go to index.js
+
+connection(url).then(() => mongo connected)
+
+
+express, mongoose require
+
+connection
+
+middlewares
+
+app.use("/api/user", userRouter)
+
+app.listen
+
+
+user -> route -> controller changes model
