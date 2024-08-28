@@ -1,0 +1,51 @@
+Server Side Rendering with EJS and Node Js
+
+
+Server side rendering one way
+res.end()
+and need to create html file, css file, so for that we have engines who works for us.
+
+ejs engine: embedded js engine, templating engine
+pug js
+handlebarsjs
+who will render the code server side
+
+for production lots of pages
+ejs - template engine
+
+ejs express: documentation.
+
+npm i ejs
+tell express which template engine we are using
+index.js
+app.set("view engine", "ejs")
+
+create folder views
+ejs files are basically an html files.
+Also i'll tell express where did I put my ejs files.
+const path = require('path') : built in module.
+
+app.set('views',path.resolve("./views"));
+
+    <% urls.forEach(url => { %>
+        <li><%= url.shortId %> - <%= url.redirectUrl %> - <%= url.visitHistory.length %></li>
+    <% }) %>
+
+ssr: easy, separate files
+can code the whole page.
+can pass variables.
+
+We'll create a static router. frontend pages we call are static.
+
+routes -> staticRouter.js
+
+to parse form data we need to add extra middleware
+express.urlencoded({extended: false})
+to support form data
+
+if locals.id: data from backend is stored in locals
+
+
+That's how we can use ejs to render server side pages
+
+view page source
