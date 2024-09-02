@@ -1,0 +1,16 @@
+State is data which we are maintaining: Stateful.
+parking ticket
+
+
+Client - username/password : Session uid is returned by server which is called session uid : server keeps the track
+
+uid: 367
+
+get /users : uid: 367 - response all users
+
+cookies/response/headers
+
+express flow:
+
+client -> auth middleware : -> endpoint route
+checks for cookie value or uid, if valid calls next() else rejects the request.
