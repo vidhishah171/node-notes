@@ -1,0 +1,39 @@
+In stateful authentication, server has a state which you need to maintain in a backend.
+
+Whenever server restarts, state gets lost.
+So all the users are logged out.
+2. Stateful authentication is memory intensive: Uses server's memory.
+
+To use less memory we have stateless authentication.
+Payload, token contains the state.
+
+Parking ticket, add a stamp on it so anyone cannot change it. Anyone can read it but cannot change it.
+So in future, anyone gives us the ticket so first we will check if it's original, kind of check the signature.
+
+Json web tokens,
+
+Header, payload, signature
+
+Header: algorithm and token type
+Payload: Data, name, id, scopes, etc
+Signature
+
+We'll take this token and keep it into user cookies, so whenever we decode this token, we'll get the same user data.
+
+npm i jsonwebtoken
+
+Go to auth.js 
+Till now we were maintaining the state, but now we don't want to maintain the state.
+so now we'll create a payload which is containing id and user object.
+
+and then we'll sign that jwt, like a stamp in a ticket with a secret key which should be safe .
+
+Actual data inside the token.
+Check modification for the same.
+
+Tokens are cautious. don't share it publically.
+delete the cookie uid
+and create the same again.
+
+We do prefer stateless
+Banking websites always use session, because they're more secure and they want to build for short term.

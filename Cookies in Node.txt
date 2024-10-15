@@ -1,0 +1,50 @@
+Stateful authentication : session of user in cookies.
+What if we store session in database, latency high, for every request call to database.
+
+Server ->  Client
+
+User -- Username/password --> server --- Database/ Mongo - if correct, we generate a token
+Token contains user id, username, email.
+
+now we need to give the Token to the user in a secured way.
+1. Cookies
+res.cookie - created by server. - stored on client side, now with every request cookie goes with the req to the server and the token is validated.
+uid: token
+browser sends cookie with the request to the server.
+Cookies are domain specific.
+fb.com created some cookies.
+piyush.dev created 2 cookies.
+when we request piyush.dev, we get only those 2 cookies.
+res.cookie()..documentation of express.js
+we can set domain, expiry date 
+2. Response
+
+    res.cookie('uid', token, {
+        domain: 'www.google.com' //only accessed by google.com
+    });
+	
+	
+.example.com - any domain that ends with example.com, when you log in to google.com, you are automatically logged in with youtube.com
+	
+2. Response
+
+Server will create a token, res.json({token})
+Local Storage, user device any file.
+To access any route.
+Create an header
+token: token.
+Standard way: built in header
+Authorization: Bearer token
+
+Search authorization header., bearer authentication
+server reads the token, removes the bearer and then validates.
+
+first request to send via cookie - only for browser.
+header - json form, user's responsibility to keep it safe.
+Authorization - 
+Bearer token
+
+browser app - token stored into local storage.
+if mobile app - token stored into mobile storage.
+Read swagger.io/ bearer authentication.
+Can create custom header as well for token. but standard is Authorization.

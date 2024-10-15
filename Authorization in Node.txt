@@ -1,0 +1,10 @@
+Authorization in Node js
+
+Authentication - log in to the application
+Authorization - Are you able to access the particular resource.
+
+Club - membership card - authenticated
+Only admins can go to a place - not authorized
+
+
+Refractor the whole module.
